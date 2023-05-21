@@ -1,0 +1,38 @@
+.386
+.model flat, stdcall
+.stack 4096
+ExitProcess	proto, dwExitCode:dword
+
+.data
+
+num1 dword 100
+num2 dword 7
+
+.code
+
+main proc
+	mov eax, 5
+	add eax, 3
+	add eax, num1
+	sub eax, 3
+	mov ecx, num2
+	add eax, ecx
+	inc eax
+	inc eax
+	dec eax
+
+	xor eax, eax
+	xor ecx, ecx
+
+	mov eax, 2
+	mov ecx, 2
+	mul ecx
+	xor eax, eax
+	mov eax, 120
+	mov ecx, 12
+	div ecx
+
+	invoke ExitProcess, 0
+main endp
+
+end main

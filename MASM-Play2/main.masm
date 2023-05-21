@@ -28,10 +28,32 @@ main proc
 	mov ecx, 2
 	mul ecx
 	xor eax, eax
+	xor edx, edx
 	mov eax, 120
-	mov ecx, 12
+	mov ecx, 11
 	div ecx
+	nop
+	nop
+	nop
+	nop
+	nop
+	xor eax, eax
+	mov eax, 0
 
+	jmp stub
+
+nop_stub:
+	nop
+	nop
+	nop
+
+stub:
+	inc eax
+	cmp eax, 3
+	je end_stub
+	jmp nop_stub
+
+end_stub:
 	invoke ExitProcess, 0
 main endp
 
